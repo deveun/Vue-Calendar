@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Calendar">
+
+	<resultMap id="Cal" type="Calendar">
+		<result property="seqNo" column="seq_no" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="creator" column="creator" />
+		<result property="team" column="team" />
+		<result property="startDt" column="start_dt" />
+		<result property="endDt" column="end_dt" />
+		<result property="cretDt" column="cret_dt" />
+	</resultMap>
+
+	<insert id="insertCalen" parameterType="Calendar">
+		INSERT INTO CALENDAR (title, content, creator, team, start_dt, end_dt, cret_dt)
+		VALUES (#{title}, #{content}, #{creator}, #{team}, #{startDt}, #{endDt}, now())
+	</insert>
+	
+	<select id="selectCalen" parameterType="Map" resultMap="Cal">
+		<![CDATA[
+		SELECT * FROM CALENDAR
+		WHERE 1=1
+		AND START_DT >= #{startDt}
+		AND END_DT < #{endDt}
+		]]>
+	</select>
+	
+	<update id="updateCalen" parameterType="Calendar">
+		UPDATE CALENDAR
+		SET 
+			title = #{title}, 
+			content = #{content}, 
+			creator = #{creator}, 
+			team = #{team},
+			start_dt = #{startDt},
+			end_dt = #{endDt}
+		WHERE SEQ_NO = #{seqNo}
+	</update>
+	
+	<delete id="deleteCalen" parameterType="Integer">
+		DELETE FROM CALENDAR
+		WHERE SEQ_NO = #{seqNo};
+	</delete>
+	
+</mapper>
