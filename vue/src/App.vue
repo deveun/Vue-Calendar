@@ -5,6 +5,7 @@
       <MainHeader/>
     	<InsertFormModal/>
 		  <Calendar/>
+      <InsertDialog/>
     </v-main>
   </v-app>
 </template>
@@ -12,7 +13,7 @@
 <script>
 import MainAppbar from './components/MainAppbar';
 import MainHeader from './components/MainHeader';
-import InsertFormModal from './components/InsertFormModal';
+import InsertDialog from './components/InsertDialog';
 import Calendar from './components/Calendar';
 
 export default {
@@ -21,7 +22,7 @@ export default {
   components: {
     MainAppbar,
     MainHeader,
-    InsertFormModal,
+    InsertDialog,
     Calendar
   },
 

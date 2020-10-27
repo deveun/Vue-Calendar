@@ -26,8 +26,10 @@
 		SELECT * FROM CALENDAR
 		WHERE 1=1
 		AND START_DT >= #{startDt}
-		AND END_DT < #{endDt}
+		
 		]]>
+		<!-- end_dt를 설정하지 않기??? (수정시에 CDATA안에 아래내용 작성)-->
+		<!-- AND END_DT <= #{endDt} -->
 	</select>
 	
 	<update id="updateCalen" parameterType="Calendar">

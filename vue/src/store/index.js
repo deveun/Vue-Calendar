@@ -6,14 +6,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     calType : 'month',
-    insertFormModalState : true
+    insertDialogVisible : false
   },
   mutations: {
     setCalType(state, payload) {
       state.calType = payload
     },
     setTrue(state) {
-      state.insertFormModalState = true
+      state.insertDialogVisible = true
     }
   },
   actions: {

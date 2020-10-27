@@ -22,11 +22,11 @@ public class CalendarServiceImpl implements ICalendarService {
 	}
 
 	@Override
-	public List<Calendar> selectCalen(String sta, String end) {
+	public List<Calendar> selectCalen(String startDt, String endDt) {
 		Map<String, String> map = new HashMap<String, String>();
 		//TODO: sta, end 값이 맞게 들어갈 수 있도록 가공 필요
-		map.put("sta", sta);
-		map.put("end", end);
+		map.put("startDt", startDt);
+		map.put("endDt", endDt);
 		return session.selectList("Calendar.selectCalen", map);
 	}
 

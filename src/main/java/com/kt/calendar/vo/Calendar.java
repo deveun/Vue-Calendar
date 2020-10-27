@@ -2,7 +2,7 @@
 package com.kt.calendar.vo;
 
 public class Calendar {
-	private int seq_no;
+	private int seqNo;
 	private String title;
 	private String content;
 	private String creator;
@@ -14,7 +14,7 @@ public class Calendar {
 	public Calendar(int seq_no, String title, String content, String creator, String team, String startDt, String endDt,
 			String cretDt) {
 		super();
-		this.seq_no = seq_no;
+		this.seqNo = seq_no;
 		this.title = title;
 		this.content = content;
 		this.creator = creator;
@@ -25,10 +25,10 @@ public class Calendar {
 	}
 	
 	public int getSeq_no() {
-		return seq_no;
+		return seqNo;
 	}
 	public void setSeq_no(int seq_no) {
-		this.seq_no = seq_no;
+		this.seqNo = seq_no;
 	}
 	public String getTitle() {
 		return title;

@@ -1,6 +1,7 @@
 package com.kt.calendar.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,8 +27,8 @@ public class CalendarController {
 	}
 	
 	@RequestMapping(value="/selectCalen", method= RequestMethod.POST)
-	public List<Calendar> selectCalen(@RequestBody String sta, @RequestBody String end) {
-		return service.selectCalen(sta, end);
+	public List<Calendar> selectCalen(@RequestBody Map<String, String> map) {
+		return service.selectCalen(map.get("startDt"), map.get("endDt"));
 	}
 	
 	@RequestMapping(value="/updateCalen", method= RequestMethod.PUT)
