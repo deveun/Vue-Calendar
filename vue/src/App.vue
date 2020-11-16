@@ -3,7 +3,6 @@
     <v-main>
     	<MainAppbar/>
       <MainHeader/>
-    	<InsertFormModal/>
 		  <Calendar/>
       <InsertDialog/>
     </v-main>
