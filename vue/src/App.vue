@@ -3,7 +3,9 @@
     <v-main>
     	<MainAppbar/>
       <MainHeader/>
-		  <Calendar/>
+      <v-card elevation="11" outlined max-width="95%" class="mx-auto pa-4">
+		    <Calendar/>
+      </v-card>
       <InsertDialog/>
     </v-main>
   </v-app>

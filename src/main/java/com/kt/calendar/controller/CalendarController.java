@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kt.calendar.service.ICalendarService;
@@ -33,11 +34,13 @@ public class CalendarController {
 	
 	@RequestMapping(value="/updateCalen", method= RequestMethod.PUT)
 	public void updateCalen(@RequestBody Calendar cal) {
+		System.out.println(cal.getSeq_no());
 		service.updateCalen(cal);
 	}
 	
-	@RequestMapping(value="/deleteCalen", method= RequestMethod.DELETE)
-	public void deleteCalen(@RequestBody String seqNo) {
+	@RequestMapping(value="/deleteCalen/{seqNo}", method= RequestMethod.DELETE)
+	public void deleteCalen(@PathVariable String seqNo) {
+		System.out.println(seqNo);
 		service.deleteCalen(seqNo);
 	}
 	

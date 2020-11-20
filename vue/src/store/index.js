@@ -5,16 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    calType : 'month',
-    insertDialogVisible : false
+    insertDialogVisible : false,
+    selectedDate : [],
+    selectedEvent: ''
   },
   mutations: {
-    setCalType(state, payload) {
-      state.calType = payload
-    },
-    setTrue(state) {
+    setInsertDialogVisible(state, payload) {
       state.insertDialogVisible = true
-    }
+      state.selectedDate = payload
+    },
+    setInsertDialogInvisible(state) {
+      state.insertDialogVisible = false
+    },
+    setSelectedEvent(state, payload) {
+      state.selectedEvent = payload
+    } 
   },
   actions: {
   },

@@ -37,7 +37,7 @@ public class CalendarServiceImpl implements ICalendarService {
 
 	@Override
 	public void deleteCalen(String seqNo) {
-		session.delete("Calendar.deleteCalen", seqNo);
+		session.delete("Calendar.deleteCalen", Integer.parseInt(seqNo));
 	}
 
 }
