@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kt.calendar.service.ICalendarService;
 import com.kt.calendar.vo.Calendar;
 
-@CrossOrigin(origins = {"*"}, maxAge = 6000)
+//@CrossOrigin(origins = {"*"}, maxAge = 6000)
 @RestController
 public class CalendarController {
 

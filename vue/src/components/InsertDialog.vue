@@ -1,5 +1,6 @@
 <template>
     <v-dialog v-model="setInsertDialog" persistent width="500">
+      <v-form ref = "form" model="valid">  
       <v-card>
         <v-card-title>
           <span class="headline">일정 추가하기</span>
@@ -104,6 +105,7 @@
           <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
         </v-card-actions>
       </v-card>
+      </v-form>
     </v-dialog>
 </template>
 
@@ -151,12 +153,18 @@
         //this.$store.state.insertDialogVisible = false
         this.$store.commit('setInsertDialogInvisible')
         this.$store.state.selectedEvent = ''
+        this.$refs.form.resetValidation()
       },
       //save event : submit data using axios and close dialog
       save: function(event) {
         //alert(this.title + " " + this.content + " " + this.creator + " " + this.team + " ")
         //alert(this.dates[0] + " " + this.startTime + "/" + this.dates[1] + " " + this.endTime)
         
+        this.$refs.form.validate()
+        if(!this.$refs.form.validate())
+          return
+        //alert(this.$refs.form.validate())
+
         if(this.$store.state.selectedEvent == '') {
           //axios 
           //: insert calendar data
