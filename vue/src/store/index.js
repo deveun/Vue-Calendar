@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     insertDialogVisible : false,
     selectedDate : [],
-    selectedEvent: ''
+    selectedEvent: '',
+    selectedTeams: ["결제플랫폼", "인증플랫폼", "서비스플랫폼", "Smart-X", "기가지니플랫폼", "미디어플랫폼"]
   },
   mutations: {
     setInsertDialogVisible(state, payload) {
@@ -19,7 +20,10 @@ export default new Vuex.Store({
     },
     setSelectedEvent(state, payload) {
       state.selectedEvent = payload
-    } 
+    },
+    setSelectedTeams(state, payload) {
+      state.selectedTeams = payload
+    }
   },
   actions: {
   },

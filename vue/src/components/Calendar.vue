@@ -39,7 +39,7 @@
       v-model="value"
       :type="type"
       :weekdays="weekday"
-      :events="events"
+      :events="selectedTeamsEvent"
       :event-overlap-mode="mode"
       :event-overlap-threshold="50"
       :event-color="getEventColor"
@@ -102,8 +102,7 @@
       weekday: [0, 1, 2, 3, 4, 5, 6],
       value: '',
       events: [],
-      colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
-      names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
+      events_tmp: [],
       selectedEvent: {},
       selectedElement: null,
       selectedContentModify: false,
@@ -114,7 +113,8 @@
       // 기간으로 조회한 일정 내용을 events에 담기
       getEvents ({ start, end }) {
         const events = []
-        const colors = this.colors
+        const colors = ['pink lighten-2', 'deep-purple', 'green', 'orange', 'teal darken-1', 'lime darken-2']
+        const teams = ["결제플랫폼", "인증플랫폼", "서비스플랫폼", "Smart-X", "기가지니플랫폼", "미디어플랫폼"]
         const startDt =start.date.replaceAll("-","") + '000000'
         const endDt = end.date.replaceAll("-","") + '235959'
 
@@ -137,7 +137,7 @@
               creator: response.data[i].creator,
               title: response.data[i].title,
               team: response.data[i].team,
-              color: colors[Math.floor((colors.length - 2) * Math.random())],
+              color: colors[teams.indexOf(response.data[i].team)],
               //false이면 시간은 표시 x
               timed: true
             })
@@ -156,6 +156,7 @@
         this.value = ''
       },
       prev () {
+        console.log(this.$store.state.selectedTeams)
         this.$refs.calendar.prev()
       },
       next () {
@@ -213,5 +214,19 @@
         console.log(this.selectedEvent)
       }
     },
+    computed: {
+      selectedTeamsEvent() {
+
+        this.events_tmp.length = 0
+        
+        for(let i = 0; i< this.events.length; i++) {
+          if(this.$store.state.selectedTeams.includes(this.events[i].team)) {
+              this.events_tmp.push(this.events[i])
+          }
+        }
+        
+        return this.events_tmp;
+      }
+    }
   }
 </script>
