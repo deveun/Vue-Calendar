@@ -3,7 +3,7 @@
     <v-main>
     	<MainAppbar/>
       <MainHeader/>
-      <v-card elevation="11" outlined max-width="95%" class="mx-auto pa-4">
+      <v-card elevation="11" outlined max-width="95%" class="mx-auto pa-4 mb-10">
 		    <Calendar/>
       </v-card>
       <InsertDialog/>

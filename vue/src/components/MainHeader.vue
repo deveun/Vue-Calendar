@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col class="my-2">
+      <v-col class="mt-7">
         <h1 class="display-2 font-weight-bold mb-5">
           플랫폼 본부 운영캘린더
         </h1>
@@ -31,7 +31,7 @@
     </v-row> -->
     <v-row class="text-center">
       <v-col>
-        <h2 class="headline font-weight-bold mb-3">
+        <h2 class="headline font-weight-bold my-4">
           화면에 보여줄 팀을 선택
         </h2>
         <v-btn-toggle v-model="$store.state.selectedTeams" dense multiple backgroud-color="primary" class="white--text">
